@@ -3,7 +3,6 @@ package kg.mcom17.CBM.entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "CONTACT")
@@ -17,10 +16,6 @@ public class Contact {
     private String nickname;
     private String company;
     private Date birthdate;
-    private Mobile mobile;
-    private Email email;
-
-    //TODO: ConstructorContact
 
 
 //Foreign Key
@@ -28,15 +23,26 @@ public class Contact {
     @JoinColumn(name = "ContactBookId")
     private ContactBook contactBook;
 
-//Associations
-    @OneToMany(mappedBy = "contact_email")
-    private List<Email> emails;
 
-    @OneToMany(mappedBy = "contact_mobile")
-    private List<Mobile> mobiles;
+    //TODO: ConstructorContact
+
+
+    public Contact() {
+
+    }
+
+    public Contact(String name, String surname, String nickname, String company, Date birthdate, ContactBook contactBook) {
+        this.name = name;
+        this.surname = surname;
+        this.nickname = nickname;
+        this.company = company;
+        this.birthdate = birthdate;
+        this.contactBook = contactBook;
+    }
 
 
 //Getters and Setters
+
     public long getContactID() {
         return contactID;
     }
@@ -79,22 +85,6 @@ public class Contact {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
-    }
-
-    public Mobile getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(Mobile mobile) {
-        this.mobile = mobile;
-    }
-
-    public Email getEmail() {
-        return email;
-    }
-
-    public void setEmail(Email email) {
-        this.email = email;
     }
 
     public ContactBook getContactBook() {

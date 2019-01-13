@@ -2,7 +2,7 @@ package kg.mcom17.CBM.entity;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "USER")
 @Table(name = "USER")
 public class User {
     @Id
@@ -20,10 +20,23 @@ public class User {
     private String phone;
     private String email;
 
-    @OneToOne(mappedBy = "user")
-    private ContactBook contactBook;
 
 //TODO: ConstructorUser
+
+
+    public User() {
+    }
+
+    public User(String userName, String password, String firstName, String lastName, String address, String phone, String email) {
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
+
 
 // Getters and Setters //
 
@@ -95,11 +108,22 @@ public class User {
         this.email = email;
     }
 
-    public ContactBook getContactBook() {
-        return contactBook;
-    }
 
-    public void setContactBook(ContactBook contactBook) {
-        this.contactBook = contactBook;
+
+    //toString method
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "UserId=" + UserId +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

@@ -1,13 +1,12 @@
 package kg.mcom17.CBM.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class MobileType {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name ="TypeId")
     private long mobileTypeId;
 
@@ -20,9 +19,6 @@ public class MobileType {
         this.mobileType = mobileType;
     }
 
-    //Association
-    @OneToMany(mappedBy = "mobileType")
-    private List<Mobile> mobiles;
 
     //Getters and Setters
     public long getMobileTypeId() {

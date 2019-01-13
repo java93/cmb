@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Email {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "EmailId")
     private long emailId;
 
@@ -17,15 +17,21 @@ public class Email {
 
 
     //Foreign Key
+
     @ManyToOne
     @JoinColumn(name = "ContactId")
-    private Contact contact_email;
+    private Contact contact;
 
 
     //TODO: ConstructorEmail
 
-    //Getter and Setters
+    public Email(String email, Contact contact) {
+        this.email = email;
+        this.contact=contact;
+    }
 
+
+    //Getter and Setters
 
     public long getEmailId() {
         return emailId;
@@ -35,11 +41,15 @@ public class Email {
         return email;
     }
 
-    public Contact getContact() {
-        return contact_email;
-    }
-
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contactemail) {
+        this.contact = contactemail;
     }
 }

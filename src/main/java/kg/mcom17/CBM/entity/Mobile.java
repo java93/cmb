@@ -13,16 +13,26 @@ public class Mobile {
     @Column(name = "PhoneNumber" ,nullable = false)
     private String phoneNumber;
 
-    //TODO: ConstructorMobile
-
-    //Foreign Keys
+//Foreign Keys
     @ManyToOne
     @JoinColumn(name = "ContactId")
-    private Contact contact_mobile;
+    private Contact contactMobile;
 
     @ManyToOne
     @JoinColumn(name = "MobileTypeId")
     private MobileType mobileType;
+
+//TODO: ConstructorMobile
+
+
+    public Mobile() {
+    }
+
+    public Mobile(String phoneNumber, Contact contactMobile, MobileType mobileType) {
+        this.phoneNumber = phoneNumber;
+        this.contactMobile = contactMobile;
+        this.mobileType = mobileType;
+    }
 
 
     //Getters and Setters
@@ -40,12 +50,12 @@ public class Mobile {
         this.phoneNumber = phoneNumber;
     }
 
-    public Contact getContact_mobile() {
-        return contact_mobile;
+    public Contact getContactMobile() {
+        return contactMobile;
     }
 
-    public void setContact_mobile(Contact contact_mobile) {
-        this.contact_mobile = contact_mobile;
+    public void setContactMobile(Contact contactMobile) {
+        this.contactMobile = contactMobile;
     }
 
     public MobileType getMobileType() {

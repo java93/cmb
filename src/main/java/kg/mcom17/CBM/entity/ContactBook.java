@@ -1,7 +1,6 @@
 package kg.mcom17.CBM.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class ContactBook {
@@ -15,14 +14,16 @@ public class ContactBook {
     @JoinColumn(name = "UserId")
     private User user;
 
-    //Associations
-    @OneToMany(mappedBy = "contactBook")
-    private List<Contact> contacts;
 
 
 //TODO: ConstructorContactBook
 
-//Getters and Setters
+
+    public ContactBook(User user) {
+        this.user = user;
+    }
+
+    //Getters and Setters
     public long getContactBookId() {
         return contactBookId;
     }
