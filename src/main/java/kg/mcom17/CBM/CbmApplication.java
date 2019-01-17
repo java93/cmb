@@ -13,7 +13,7 @@ public class CbmApplication extends SpringBootServletInitializer {
 		return application.sources(CbmApplication.class);
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		SpringApplication.run(CbmApplication.class, args);
 	}
 }

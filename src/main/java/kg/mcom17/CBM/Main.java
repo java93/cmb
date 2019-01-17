@@ -1,8 +1,9 @@
 package kg.mcom17.CBM;
 
-import kg.mcom17.CBM.config.MyValidator;
+
 import kg.mcom17.CBM.entity.User;
 import kg.mcom17.CBM.service.SecurityService;
+
 import kg.mcom17.CBM.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +21,8 @@ public class Main {
     @Autowired
     private SecurityService securityService;
 
-    @Autowired
-    private MyValidator myValidator;
+    /*@Autowired
+    private MyValidator myValidator;*/
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -32,7 +33,7 @@ public class Main {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-        myValidator.validate(userForm, bindingResult);
+        //myValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "registration";

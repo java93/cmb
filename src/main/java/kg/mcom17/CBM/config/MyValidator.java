@@ -9,17 +9,18 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-@Component
-public class MyValidator implements Validator {
-    @Autowired
+//@Component
+public class MyValidator //implements Validator
+         {
+    //@Autowired
     private UserService userService;
 
-    @Override
+    //@Override
     public boolean supports(Class<?> aClass) {
         return User.class.equals(aClass);
     }
 
-    @Override
+    /*@Override
     public void validate(Object o, Errors errors) {
         User user = (User) o;
 
@@ -40,5 +41,5 @@ public class MyValidator implements Validator {
             errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
         }
 
-    }
+    }*/
 }
