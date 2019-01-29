@@ -10,10 +10,10 @@ public class User {
     private long UserId;
 
     @Column(name = "UserName", unique = true)
-    private String userName;
+    private String username;
 
     private String password;
-
+    private String passwordConfirm;
     private String firstName;
     private String lastName;
     private String address;
@@ -27,8 +27,8 @@ public class User {
     public User() {
     }
 
-    public User(String userName, String password, String firstName, String lastName, String address, String phone, String email) {
-        this.userName = userName;
+    public User(String username, String password, String firstName, String lastName, String address, String phone, String email) {
+        this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -47,12 +47,12 @@ public class User {
     }
 
     //UserName
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     //Password
@@ -108,6 +108,15 @@ public class User {
         this.email = email;
     }
 
+    @Transient
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
 
 
     //toString method
@@ -117,7 +126,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "UserId=" + UserId +
-                ", userName='" + userName + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
